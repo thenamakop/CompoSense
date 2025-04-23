@@ -1,3 +1,6 @@
+#CompoSense
+This webapp draws sensor data from an arduino uno r4 and shows data insights of that sensor
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
