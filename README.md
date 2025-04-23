@@ -1,4 +1,4 @@
-**#CompoSense**
+**CompoSense**
 
 This webapp draws sensor data from an arduino uno r4 and shows data insights of that sensor
 
