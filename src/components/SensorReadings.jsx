@@ -32,7 +32,8 @@ const centerTextPlugin = {
     const textX = width / 2;
     const textY = height / 2;
 
-    ctx.fillStyle = "#F75A5A";
+    // Set temperature value color to black
+    ctx.fillStyle = "#000000";
     ctx.fillText(text, textX, textY);
     ctx.save();
   },
@@ -109,13 +110,21 @@ export default function SensorReadings() {
             <div className="mt-2">
               <span
                 className={`badge ${
-                  classification === "Excellent"
+                  classification === "Excellent" ||
+                  classification === "Optimal" ||
+                  classification === "Optimal Humidity"
                     ? "badge-success"
                     : classification === "Good"
                     ? "badge-info"
                     : classification === "Moderate"
                     ? "badge-warning"
-                    : classification === "Poor"
+                    : classification === "Poor" ||
+                      classification === "Too Dry" ||
+                      classification === "Bone Dry" ||
+                      classification === "Arid" ||
+                      classification === "Too Wet" ||
+                      classification === "Waterlogged" ||
+                      classification === "Damp"
                     ? "badge-error"
                     : "badge-error"
                 }`}
@@ -197,7 +206,7 @@ export default function SensorReadings() {
               size: 14,
               family: "'Inter', sans-serif",
             },
-            color: "#4B5563",
+            color: "#9CA3AF",
             generateLabels: (chart) => {
               const data = chart.data;
               return data.labels.map((label, i) => ({
@@ -212,10 +221,10 @@ export default function SensorReadings() {
           },
         },
         tooltip: {
-          backgroundColor: "rgba(255, 255, 255, 0.9)",
-          titleColor: "#1F2937",
-          bodyColor: "#4B5563",
-          borderColor: "#E5E7EB",
+          backgroundColor: "rgba(0, 0, 0, 0.8)",
+          titleColor: "#ffffff",
+          bodyColor: "#ffffff",
+          borderColor: "#ffffff",
           borderWidth: 1,
           padding: 12,
           callbacks: {
