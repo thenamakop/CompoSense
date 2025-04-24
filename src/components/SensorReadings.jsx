@@ -137,6 +137,20 @@ export default function SensorReadings() {
     return "Bad";
   };
 
+  const getMoistureClassification = (value) => {
+    if (value <= 30) return "Too Dry";
+    if (value <= 60) return "Optimal";
+    if (value <= 70) return "Too Wet";
+    return "Waterlogged";
+  };
+
+  const getHumidityClassification = (value) => {
+    if (value < 20) return "Bone Dry";
+    if (value <= 40) return "Arid";
+    if (value <= 60) return "Optimal Humidity";
+    return "Damp";
+  };
+
   const Sensor1PieChart = ({ value }) => {
     const maxValue = 80; // Maximum temperature in Celsius
     const remainingValue = Math.max(0, maxValue - value);
@@ -255,11 +269,13 @@ export default function SensorReadings() {
             title="Humidity Readings"
             value={`${readings?.sensor2}%`}
             trend="down"
+            classification={getHumidityClassification(readings?.sensor2 || 0)}
           />
           <SensorCard
             title="Soil Moisture Readings"
             value={`${readings?.sensor3}%`}
             trend="up"
+            classification={getMoistureClassification(readings?.sensor3 || 0)}
           />
           <SensorCard
             title="Gas Sensor Readings"
