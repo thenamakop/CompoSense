@@ -10,6 +10,14 @@ The application displays live and historical sensor data, helping users monitor 
 
 ---
 
+## 🌐 Live Demo
+
+CompoSense is hosted on Vercel!  
+**Take a look at it in action:**  
+[https://compo-sense.vercel.app/](https://compo-sense.vercel.app/)
+
+---
+
 ## 🚀 Tech Stack
 
 - **Frontend:**  
